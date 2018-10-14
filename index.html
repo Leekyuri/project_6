@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* {margin: 0; padding: 0;}
+		body {background: #C395C2; overflow: hidden;}
+		#clang {position: absolute; 
+				width: 100px; 
+				top: 240px; 
+				left: 640px; z-index: 11;
+				opacity: 0;
+				transition:all ease 0.2s;}
+
+		#nopain {position: absolute; 
+				width: 100px; 
+				top: 640px; 
+				left: 500px; z-index: 11;
+				opacity: 0;
+				transition:all ease 0.2s;}
+
+		.contain {width: 800px; height: 900px; margin: 0 auto;
+				position: relative;}
+
+		.bubble {width:50px; height: 50px; 
+			 border-radius: 50%;
+			 border: 2px solid #353535;
+			 box-sizing: border-box;
+			 display: inline-block;
+			 margin-left: 5px; cursor: pointer;
+			 background-image: linear-gradient(to bottom right, #ECC8CC, #8FC2DE); z-index: 7; width: 50px; position: absolute; 
+				animation: re 0.5s ease infinite alternate; 
+			}
+
+			@keyframes re{
+				from{ top: 0; }
+				to{top: 20px;}
+				}
+
+		.box {width: 200px; height: 200px; 
+			position: absolute;
+			border: 2px solid #353535; 
+			opacity: 1; 
+			transition: all 1s ease;
+			transform: scale(0);
+			}
+
+
+		.box .topBox {width:inherit; height: 20px; 
+			position: absolute; 
+			border-bottom: 2px solid #353535;}
+		.box .topBox .round {width:10px; height: 10px; 
+							border-radius: 50%;
+							border: 2px solid #353535;
+							box-sizing: border-box;
+							display: inline-block;
+							margin-left: 5px;}
+		.box .bottomBox {width:200px; height: 180px; 
+						position: absolute; top: 20px;}
+
+		
+
+		.box1 {top:100px; left: 30px; z-index: 3;}
+		.box1 .tB1 {background: #FFFFFF;}
+		.box1 .bB1 {background: #F4F4F4;}
+		#b1 {width: 90px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+
+		.box2 {width: 260px; height: 260px; top:70px; left: 430px; z-index: 4;}
+		.box2 .tB2 {width: inherit; height: 20px; background: #FFFFFF; }
+		.box2 .bB2 {width:inherit; height: 240px; background: #F4F4F4; }
+		#bag1 {width: 150px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); cursor: pointer;}
+
+		.box3 {width: 240px; height: 240px; top:200px; left: 110px; z-index: 5;}
+		.box3 .tB3 {width: inherit; background: #FFFFFF;}
+		.box3 .bB3 {width: inherit; height: 220px; background: #EDDAEF; overflow: hidden;}
+		.box3 .bB3 .round2 {width:160px; height: 160px; 
+							border-radius: 50%;
+							border: 2px solid #353535;
+							box-sizing: border-box;
+							display: inline-block;
+							margin-left: 5px;
+							position: absolute;
+							top: 50%; left:50%; transform: translate(-50%,-50%);
+							background: white;}
+		.box3 .bB3 .round3 {width:120px; height: 120px; 
+							border-radius: 50%;
+							border: 2px solid #353535;
+							box-sizing: border-box;
+							display: inline-block;
+							margin-left: 5px;
+							position: absolute;
+							top: 50%; left:50%; transform: translate(-50%,-50%);
+							background:#C395C2;}
+		#bottle2 {width: 50px; position: absolute;
+					top: 50%; left:50%; 
+					transform: translate(-50%,-50%); 
+					cursor: pointer;}
+
+		.box4 {width: 220px; height: 220px; top:500px; left: 30px; z-index: 6;}
+		.box4 .tB4 {width: inherit; background: #FFFFFF;}
+		.box4 .bB4 {width: inherit; height: 200px; background: #EDDAEF;}
+		#iv {width: 140px; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); cursor: pointer;}
+
+		.box5 {width: 160px; height: 160px; top:640px; left: 220px; z-index: 8;}
+		.box5 .tB5 {width: inherit; background: #FFFFFF;}
+		.box5 .bB5 {width: inherit; height: 140px; background: #F4F4F4;}
+		#not {width: 50px; position: absolute; top: 25px; left: 10px;}
+
+		.box6 {width: 240px; height: 240px; top:540px; left: 530px; z-index: 9;}
+		.box6 .tB6 {width: inherit; background: #FFFFFF;}
+		.box6 .bB6 {width: inherit; height: 220px; background: #F4F4F4;}
+
+		.box7 {width: 280px; height: 280px; top:300px; left: 300px; z-index: 10;}
+		.box7 .tB7 {width: inherit; background: #FFFFFF;}
+		.box7 .bB7 {width: inherit; height: 260px; background: #F4F4F4;}
+		#m1 {width: 240px; position: absolute; top: 10px; left: 10px; cursor: pointer;}
+		#m2 {position: absolute; width: 170px; top: 15px; left: 30px;}
+		#blah1 {width: 260px; position: absolute; top: 85px; left: 10px; cursor: pointer;}
+		.box3 .bB3 #pm {width: 400px; position: absolute; top: -20px; left: -70px;}
+		#die {width: 1px; position: absolute; top: 50%; left:50%; transform: translate(-50%,-50%); opacity: 0; transition:all ease 1s; z-index: 12;}
+	</style>
+</head>
+<body>
+	<video id="die" src="die.mp4" type="video/mp4";></video>
+	<img id="clang" src="clang.png">
+	<audio id="ding">
+		<source src="ding.wav" type="audio/mpeg">
+	</audio>
+	<audio id="clangSound">
+		<source src="clang.mp3" type="audio/mpeg">
+	</audio>
+	<img id="nopain" src="nopain.png">
+	<audio id="nopainSound">
+		<source src="nopain.mpeg" type="audio/mpeg">
+	</audio>
+	<div class="contain">
+		<div class="bubble" onclick="a()"></div>
+		<div class="box box1">
+			<div class="topBox tB1">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB1">
+				<img id="b1" src="bottle.png">
+			</div>
+		</div>
+		<div class="box box2">
+			<div class="topBox tB2">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB2">
+				<img id="bag1" src="bag.png" onclick="g()">
+			</div>
+		</div>
+		<div class="box box3">
+			<div class="topBox tB3">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB3">
+				<img id="pm" src="p.png">
+				<div class="round2"></div>
+				<div class="round3">
+					<img id="bottle2" src="bottle2.png" onclick="d()">
+				</div>
+			</div>
+		</div>
+		<div class="box box4">
+			<div class="topBox tB4">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB4">
+				<img id="iv" src="iv.png" onclick="f()">
+			</div>
+		</div>
+		<div class="box box5">
+			<div class="topBox tB5">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB5">
+				<img id="not" src="not.png">
+			</div>
+		</div>
+		<div class="box box6">
+			<div class="topBox tB6">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB6">
+				<img id="m2" src="m2.png">
+			</div>
+		</div>
+		<div class="box box7">
+			<div class="topBox tB7">
+				<div class="round"></div>
+				<div class="round"></div>
+				<div class="round"></div>
+			</div>
+			<div class="bottomBox bB7">
+				<img id="m1" src="medicine.png" onclick="b()">
+				<img id="blah1" src="blah.png" onclick="c()">
+				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var total = 0;
+		var j = document.querySelector(".bubble");
+		
+		for(var i=0;i<14;i++){
+			var size = Math.random()*50 + "px";
+
+			var newbubble = j.cloneNode(true);
+			newbubble.style.marginTop = Math.random()*900 + "px";
+			newbubble.style.left = Math.random()*800 + "px";
+			newbubble.style.animationDuration = Math.random()*5+2+"s";
+			newbubble.style.width = size;
+			newbubble.style.height = size;
+			document.querySelector(".contain").appendChild(newbubble);
+			}
+
+			
+			j.style.display = "none";
+			var box = document.querySelectorAll(".box");
+
+				var s = 0 ;
+
+
+				function g(){
+				s++;
+				if(s%2==1){
+					
+					die.setAttribute("src","die.mp4")
+					die.style.opacity=1;
+					die.style.width="500px";
+					die.play();
+					
+				}else if(s%2==0){
+						
+					die.style.opacity=0;
+					die.currentTime=0;
+					die.style.width="1px";
+					die.pause();
+				}
+		}
+
+
+
+			var k = 0;
+
+			function f(){
+					k++;
+					if(k%2==1){
+						nopain.style.opacity=1;
+						nopainSound.play();
+					}else if(k%2==0){
+						nopain.style.opacity=0;
+						nopainSound.pause();
+					}
+			}
+
+
+			var u = 0;
+
+			function d(){
+					u++;
+					if(u%2==1){
+						clang.style.opacity=1;
+						clangSound.play();
+					}else if(u%2==0){
+						clang.style.opacity=0;
+						clangSound.pause();
+					}
+			}
+
+
+			var o = "off";
+
+			function b(){
+				if (o == "off") {
+					m1.setAttribute("src","medicine2.png")
+					o = "on";
+				}else {
+					m1.setAttribute("src","medicine.png")
+					o = "off"
+				}
+				
+			}
+
+			var e = "off"
+
+			function c(){
+				if (e == "off") {
+					blah1.setAttribute("src","blah2.png")
+					e = "on"
+				}else {
+					blah1.setAttribute("src","blah.png")
+					e = "off"
+				}
+			}
+
+			function a(){
+					ding.play();
+					i++;
+					if(i%2==1){
+						var m = 0;
+							var plus = setInterval(function(){
+								m++;
+								if (m>7){
+									m=0;
+									clearInterval(plus);
+								}
+								if(m%7==1){box[0].style.opacity=1; box[0].style.transform ="scale(1)"}
+								else if(m%7==2){box[1].style.opacity=1; box[1].style.transform ="scale(1)"}
+								else if(m%7==3){box[2].style.opacity=1; box[2].style.transform ="scale(1)"}
+								else if(m%7==4){box[3].style.opacity=1; box[3].style.transform ="scale(1)"}
+								else if(m%7==5){box[4].style.opacity=1; box[4].style.transform ="scale(1)"}
+								else if(m%7==6){box[5].style.opacity=1; box[5].style.transform ="scale(1)"}
+								else if(m%7==0){box[6].style.opacity=1; box[6].style.transform ="scale(1)"}
+							},300)
+							
+						
+					}else if(i%2==0){
+						ding.pause();
+						var n = 0;
+							var plusn = setInterval(function(){
+								n++;
+								if (n>7){
+									n=0;
+									clearInterval(plusn);
+								}
+								if(n%7==1){box[0].style.opacity=1; box[0].style.transform ="scale(0)"}
+								else if(n%7==2){box[1].style.opacity=1; box[1].style.transform ="scale(0)"}
+								else if(n%7==3){box[2].style.opacity=1; box[2].style.transform ="scale(0)"}
+								else if(n%7==4){box[3].style.opacity=1; box[3].style.transform ="scale(0)"}
+								else if(n%7==5){box[4].style.opacity=1; box[4].style.transform ="scale(0)"}
+								else if(n%7==6){box[5].style.opacity=1; box[5].style.transform ="scale(0)"}
+								else if(n%7==0){box[6].style.opacity=1; box[6].style.transform ="scale(0)"}
+							},300)
+					}
+			}
+
+
+	</script>
+</body>
+</html>
